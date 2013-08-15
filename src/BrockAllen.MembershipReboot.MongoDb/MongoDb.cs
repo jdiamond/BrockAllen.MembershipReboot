@@ -4,7 +4,7 @@ using MongoDB.Driver;
 
 namespace BrockAllen.MembershipReboot.MongoDb
 {
-    internal static class MongoDb
+    public class MongoDb
     {
         static MongoDb()
         {
@@ -15,19 +15,26 @@ namespace BrockAllen.MembershipReboot.MongoDb
             });
         }
 
-        public static MongoCollection<MongoGroup> Groups()
+        private readonly string _connectionStringName;
+
+        public MongoDb(string connectionStringName)
+        {
+            _connectionStringName = connectionStringName;
+        }
+
+        public MongoCollection<MongoGroup> Groups()
         {
             return GetCollection<MongoGroup>("groups");
         }
 
-        public static MongoCollection<MongoUserAccount> Users()
+        public MongoCollection<MongoUserAccount> Users()
         {
             return GetCollection<MongoUserAccount>("users");
         }
 
-        public static MongoCollection<T> GetCollection<T>(string name)
+        public MongoCollection<T> GetCollection<T>(string name)
         {
-            var connectionString = ConfigurationManager.ConnectionStrings["MongoDb"].ConnectionString;
+            var connectionString = ConfigurationManager.ConnectionStrings[_connectionStringName].ConnectionString;
             var databaseName = MongoUrl.Create(connectionString).DatabaseName;
             var client = new MongoClient(connectionString);
             var server = client.GetServer();
