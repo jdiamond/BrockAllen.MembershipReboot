@@ -4,9 +4,9 @@ using MongoDB.Driver;
 
 namespace BrockAllen.MembershipReboot.MongoDb
 {
-    public class MongoDb
+    public class MongoDatabase
     {
-        static MongoDb()
+        static MongoDatabase()
         {
             BsonClassMap.RegisterClassMap<UserAccount>(cm =>
             {
@@ -17,7 +17,7 @@ namespace BrockAllen.MembershipReboot.MongoDb
 
         private readonly string _connectionStringName;
 
-        public MongoDb(string connectionStringName)
+        public MongoDatabase(string connectionStringName)
         {
             _connectionStringName = connectionStringName;
         }

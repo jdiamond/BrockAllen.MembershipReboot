@@ -6,9 +6,9 @@ namespace BrockAllen.MembershipReboot.MongoDb
 {
     public class MongoGroupRepository : IGroupRepository
     {
-        private MongoDb _db;
+        private MongoDatabase _db;
 
-        public MongoGroupRepository(MongoDb db)
+        public MongoGroupRepository(MongoDatabase db)
         {
             _db = db;
         }

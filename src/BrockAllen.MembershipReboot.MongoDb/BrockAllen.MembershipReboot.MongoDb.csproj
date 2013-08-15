@@ -51,7 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MongoDb.cs" />
+    <Compile Include="MongoDatabase.cs" />
     <Compile Include="MongoGroup.cs" />
     <Compile Include="MongoGroupRepository.cs" />
     <Compile Include="MongoUserAccount.cs" />
