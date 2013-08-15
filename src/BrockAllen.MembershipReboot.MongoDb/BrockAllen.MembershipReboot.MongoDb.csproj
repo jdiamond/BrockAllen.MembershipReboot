@@ -42,6 +42,7 @@
       <HintPath>..\..\packages\mongocsharpdriver.1.8.2\lib\net35\MongoDB.Driver.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -50,6 +51,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MongoDb.cs" />
+    <Compile Include="MongoGroup.cs" />
+    <Compile Include="MongoGroupRepository.cs" />
+    <Compile Include="MongoUserAccount.cs" />
+    <Compile Include="MongoUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
