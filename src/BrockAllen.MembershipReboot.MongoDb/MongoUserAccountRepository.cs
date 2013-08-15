@@ -4,11 +4,11 @@ using MongoDB.Driver.Builders;
 
 namespace BrockAllen.MembershipReboot.MongoDb
 {
-    public class MongoUserRepository : IUserAccountRepository
+    public class MongoUserAccountRepository : IUserAccountRepository
     {
         private MongoDatabase _db;
 
-        public MongoUserRepository(MongoDatabase db)
+        public MongoUserAccountRepository(MongoDatabase db)
         {
             _db = db;
         }
