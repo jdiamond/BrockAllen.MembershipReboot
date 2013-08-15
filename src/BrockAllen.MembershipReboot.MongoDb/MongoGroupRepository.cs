@@ -6,7 +6,7 @@ namespace BrockAllen.MembershipReboot.MongoDb
 {
     public class MongoGroupRepository : IGroupRepository
     {
-        private MongoDatabase _db;
+        private readonly MongoDatabase _db;
 
         public MongoGroupRepository(MongoDatabase db)
         {
@@ -15,7 +15,7 @@ namespace BrockAllen.MembershipReboot.MongoDb
 
         public Group Create()
         {
-            return new MongoGroup();
+            return new Group();
         }
 
         public IQueryable<Group> GetAll()
@@ -25,22 +25,22 @@ namespace BrockAllen.MembershipReboot.MongoDb
 
         public Group Get(params object[] keys)
         {
-            return _db.Groups().FindOne(Query<MongoGroup>.EQ(e => e.ID, (Guid)keys[0]));
+            return _db.Groups().FindOne(Query<Group>.EQ(e => e.ID, (Guid)keys[0]));
         }
 
         public void Add(Group item)
         {
-            _db.Groups().Insert((MongoGroup)item);
+            _db.Groups().Insert(item);
         }
 
         public void Update(Group item)
         {
-            _db.Groups().Save((MongoGroup)item);
+            _db.Groups().Save(item);
         }
 
         public void Remove(Group item)
         {
-            _db.Groups().Remove(Query<MongoUserAccount>.EQ(e => e.ID, item.ID));
+            _db.Groups().Remove(Query<UserAccount>.EQ(e => e.ID, item.ID));
         }
 
         public void Dispose()

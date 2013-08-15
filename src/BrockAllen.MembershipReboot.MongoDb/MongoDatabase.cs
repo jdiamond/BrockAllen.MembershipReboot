@@ -22,14 +22,14 @@ namespace BrockAllen.MembershipReboot.MongoDb
             _connectionStringName = connectionStringName;
         }
 
-        public MongoCollection<MongoGroup> Groups()
+        public MongoCollection<Group> Groups()
         {
-            return GetCollection<MongoGroup>("groups");
+            return GetCollection<Group>("groups");
         }
 
-        public MongoCollection<MongoUserAccount> Users()
+        public MongoCollection<UserAccount> Users()
         {
-            return GetCollection<MongoUserAccount>("users");
+            return GetCollection<UserAccount>("users");
         }
 
         public MongoCollection<T> GetCollection<T>(string name)

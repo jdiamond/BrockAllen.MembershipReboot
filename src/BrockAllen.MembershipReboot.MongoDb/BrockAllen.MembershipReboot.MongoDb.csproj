@@ -52,9 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MongoDatabase.cs" />
-    <Compile Include="MongoGroup.cs" />
     <Compile Include="MongoGroupRepository.cs" />
-    <Compile Include="MongoUserAccount.cs" />
     <Compile Include="MongoUserAccountRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

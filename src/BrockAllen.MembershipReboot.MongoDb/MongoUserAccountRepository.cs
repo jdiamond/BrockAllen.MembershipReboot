@@ -6,7 +6,7 @@ namespace BrockAllen.MembershipReboot.MongoDb
 {
     public class MongoUserAccountRepository : IUserAccountRepository
     {
-        private MongoDatabase _db;
+        private readonly MongoDatabase _db;
 
         public MongoUserAccountRepository(MongoDatabase db)
         {
@@ -15,7 +15,7 @@ namespace BrockAllen.MembershipReboot.MongoDb
 
         public UserAccount Create()
         {
-            return new MongoUserAccount();
+            return new UserAccount();
         }
         
         public IQueryable<UserAccount> GetAll()
@@ -25,22 +25,22 @@ namespace BrockAllen.MembershipReboot.MongoDb
 
         public UserAccount Get(params object[] keys)
         {
-            return _db.Users().FindOne(Query<MongoUserAccount>.EQ(e => e.ID, (Guid)keys[0]));
+            return _db.Users().FindOne(Query<UserAccount>.EQ(e => e.ID, (Guid)keys[0]));
         }
 
         public void Add(UserAccount item)
         {
-            _db.Users().Insert((MongoUserAccount)item);
+            _db.Users().Insert(item);
         }
 
         public void Update(UserAccount item)
         {
-            _db.Users().Save((MongoUserAccount)item);
+            _db.Users().Save(item);
         }
 
         public void Remove(UserAccount item)
         {
-            _db.Users().Remove(Query<MongoUserAccount>.EQ(e => e.ID, item.ID));
+            _db.Users().Remove(Query<UserAccount>.EQ(e => e.ID, item.ID));
         }
 
         public void Dispose()
