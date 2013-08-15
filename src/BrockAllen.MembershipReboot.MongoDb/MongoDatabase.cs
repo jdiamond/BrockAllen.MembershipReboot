@@ -8,6 +8,12 @@ namespace BrockAllen.MembershipReboot.MongoDb
     {
         static MongoDatabase()
         {
+            BsonClassMap.RegisterClassMap<Group>(cm =>
+            {
+                cm.AutoMap();
+                cm.MapIdProperty(c => c.ID);
+            });
+
             BsonClassMap.RegisterClassMap<UserAccount>(cm =>
             {
                 cm.AutoMap();
