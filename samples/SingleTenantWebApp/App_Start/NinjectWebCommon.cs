@@ -73,8 +73,8 @@ namespace BrockAllen.MembershipReboot.Mvc.App_Start
 
         //private static void RegisterMongoDb(IKernel kernel)
         //{
-        //    kernel.Bind<MongoDatabase>().ToSelf().WithConstructorArgument("connectionStringName", "MongoDb");
-        //    kernel.Bind<IUserAccountRepository>().To<MongoUserAccountRepository>();
+        //    kernel.Bind<MongoDb.MongoDatabase>().ToSelf().WithConstructorArgument("connectionStringName", "MongoDb");
+        //    kernel.Bind<IUserAccountRepository>().To<MongoDb.MongoUserAccountRepository>();
         //}
     }
 }
