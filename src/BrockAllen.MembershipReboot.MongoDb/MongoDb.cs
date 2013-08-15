@@ -1,10 +1,20 @@
 ﻿using System.Configuration;
+using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
 
 namespace BrockAllen.MembershipReboot.MongoDb
 {
     internal static class MongoDb
     {
+        static MongoDb()
+        {
+            BsonClassMap.RegisterClassMap<UserAccount>(cm =>
+            {
+                cm.AutoMap();
+                cm.MapIdProperty(c => c.ID);
+            });
+        }
+
         public static MongoCollection<MongoGroup> Groups()
         {
             return GetCollection<MongoGroup>("groups");
